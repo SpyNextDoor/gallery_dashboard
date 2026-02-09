@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gallery Admin Dashboard</title>
+
+  <!-- Tailwind + DaisyUI CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      plugins: [daisyui],
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.js"></script>
+</head>
+
+<body class="bg-base-200 min-h-screen p-6">
+
+  <!-- LOGIN -->
+  <div id="login" class="max-w-md mx-auto card bg-base-100 shadow-xl p-6 text-center">
+    <h1 class="text-2xl font-bold mb-6">Gallery Admin Login</h1>
+    <button id="loginBtn" class="btn btn-primary w-full">Sign in with Google</button>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div id="dashboard" class="hidden max-w-4xl mx-auto">
+    <button id="logoutBtn" class="btn btn-sm btn-outline mb-4">Logout</button>
+    <h1 class="text-3xl font-bold mb-6">Gallery Dashboard</h1>
+
+    <!-- ADD ARTWORK -->
+    <div class="card bg-base-100 shadow-xl p-6 mb-8">
+      <h2 class="text-xl font-semibold mb-4">Add Artwork</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <input id="title" class="input input-bordered" placeholder="Artwork Title" />
+        <input id="artistName" class="input input-bordered" placeholder="Artist Name" />
+        <input id="price" type="number" class="input input-bordered" placeholder="Price ($)" />
+        <input id="artistWebsite" class="input input-bordered" placeholder="Artist Website URL" />
+      </div>
+
+      <textarea id="description" class="textarea textarea-bordered w-full mt-4" placeholder="Description"></textarea>
+
+      <div class="mt-4">
+        <label class="label">Artwork Image (PNG)</label>
+        <input id="imageFile" type="file" accept="image/png" class="file-input file-input-bordered w-full" />
+      </div>
+
+      <div class="mt-4">
+        <label class="label">Artist Video</label>
+        <input id="videoFile" type="file" accept="video/*" class="file-input file-input-bordered w-full" />
+      </div>
+
+      <button id="addArtworkBtn" class="btn btn-success mt-6 w-full">Add Artwork</button>
+    </div>
+
+    <!-- EXISTING ARTWORKS -->
+    <div class="card bg-base-100 shadow-xl p-6">
+      <h2 class="text-xl font-semibold mb-4">Existing Artworks</h2>
+      <div id="artworkList" class="space-y-4"></div>
+    </div>
+  </div>
+
+  <!-- Load JS as module -->
+  <script type="module" src="app.js"></script>
+</body>
+</html>
